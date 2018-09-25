@@ -1,28 +1,15 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
-    <script src="main.js"></script>
-</head>
-
-<body>
-    <div class="boxlogin">
+    <div class="boxlogin" >
         <div class="form">
-                <img  src="images/logo.jpg"> 
-            <form method="post" action="/login">
-                <input class='input' type="text" name="User name" placeholder="User name">
-                <input type="text" name="Password" placeholder="Password">
+                <img  src="images/logo.jpg">
+            <form >
+                <input class='input' type="email" name="email" placeholder="E-mail" ng-model = "user.email"/>
+                <input type="text" name="Password" placeholder="Password" ng-model = "user.password"/>
                 For Account ?
-                 <a href="index.html#/register">Register here</a> &nbsp &nbsp 
+                  <a href="#!/register">Register here</a> &nbsp &nbsp  
                 <button ng-click="displayHome()">Login</button>
-                
+                <h3>{{message}}</h3>
             </form>
         </div>
     </div>
-</body>
-</html>
+

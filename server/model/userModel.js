@@ -10,7 +10,7 @@ var userSchema=new mongoSchema({
         type:Number,
         required:false,
         min:10
-    },
+    }, 
     'email' :{
         type:String,
         required:true
