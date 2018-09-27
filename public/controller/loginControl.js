@@ -14,12 +14,20 @@ chatApp.controller("loginController", function ($scope, $http, $state,$window) {
         }).then(function (response) {
                 if (response.status == 200) {
                     console.log("Successfully logged in");
-                    // console.log(response.data);
-                    console.log(response.data.token);
-                    const secret = {
-                        token : response.data.token,
-                    }
-                    window.localStorage.setItem('user', JSON.stringify(secret));
+                    
+                    //console.log(response.data.token);
+                    // const secret = {
+                        // token : response.data.token,
+                        // _id : response.data._id
+                    // }
+                    $scope.secret={
+
+                        'token' : response.data.token,
+                        'id' : response.data._id,
+                    } 
+                    // console.log($scope.secret);
+
+                    window.localStorage.setItem('user', JSON.stringify($scope.secret));
                     
                     
                     $state.go('home');   
