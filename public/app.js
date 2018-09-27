@@ -16,8 +16,12 @@ chatApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/register',
             templateUrl: 'template/registrationpage.html', 
             controller: 'registerController'       
+        })
+        .state('home', {
+            url: '/home',
+            templateUrl: 'template/home.html',
+            controller: 'homeController'
         });
-       
 });
 
   

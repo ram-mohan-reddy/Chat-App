@@ -23,6 +23,7 @@ router.post("/login", [
         return res.status(422).json({ errors: errors.array() });
     }
 
+    user.email = req.body.email;
     user.password = require('crypto')
         .createHash('sha1')
         .update(req.body.password)
@@ -34,13 +35,13 @@ router.post("/login", [
         .then(result => {
 
             if (result.length > 0) {
-                var token = jwt.sign({ id: user._id }, config.secret, {
-                    expiresIn: 86400
-                });
+                 var token = jwt.sign({ email : user.email }, config.secret, {
+                     expiresIn: 86400
+                 });
 
                 response = {
                     "message": "Successfully logged in",
-                    "token": token
+                     "token": token
                 };
                 console.log('User succesfully Logged in');
                 res.status(200).send(response);
@@ -104,12 +105,12 @@ router.post('/register', [
                         return res.status(500).send(response);
                     }
                     else {
-                        var token = jwt.sign({ id: user._id }, config.secret, {
-                            expiresIn: 86400 // expires in 24 hours
-                        });
+                        // var token = jwt.sign({ id: user._id }, config.secret, {
+                            // expiresIn: 86400 // expires in 24 hours
+                        // });
                         response = {
                             "message": "Successfully registerd",
-                            "token": token
+                            // "token": token
                         };
 
                         console.log('Registered successfully');
@@ -130,38 +131,14 @@ router.post('/register', [
 });
 
 
-router.get("/view", (req, res) => {
-
-    user.username = req.body.username;
-
-    schema.find({}, function(err, users) {
-        if (err) throw err;
-      
-       
-
-        var temp = [];
-        
-        for (let index = 0; index < users.length; index++) {
-
-            if( user.email != users[index].email) {
-                temp.push(users[index].username)
-            }
-            
-        }
-
+router.get('/users/data',(req,res)=>{
+    schema.find().then((data)=>{
         response = {
-            "users": temp ,    
+            "users": data ,    
         };
-        
-        console.log(temp);
-        console.log('users in data base');
-        return res.status(200).send(response);
-        
-      });
-       
-});
-
-
+    res.status(200).send(response)})
+    .catch((e)=>{
+    res.status(400).send(e);});});
 
 
 app.use('/', router);

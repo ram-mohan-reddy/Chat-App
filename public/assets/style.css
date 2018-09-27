@@ -53,3 +53,33 @@
     text-decoration: none;
 }
 
+.header {
+    background-color: #F1F1F1;
+    text-align: center;
+    padding: 20px;
+    width: 1300px;
+    height: 75px;
+    margin-left: 15px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+.header a {
+
+    align-content: left;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.section {
+    background-color: #F1F1F1;
+}
+
+.div {
+    background-color: #F1F1F1;
+    width: 250px;
+    height: 500px;
+    padding: 20px;
+    border-radius: 10px 10px 10px 10px;
+    margin: 20px;
+}

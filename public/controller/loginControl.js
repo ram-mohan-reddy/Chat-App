@@ -1,4 +1,4 @@
-chatApp.controller("loginController", function ($scope, $http) {
+chatApp.controller("loginController", function ($scope, $http, $state,$window) {
  
     $scope.user={
 
@@ -14,8 +14,15 @@ chatApp.controller("loginController", function ($scope, $http) {
         }).then(function (response) {
                 if (response.status == 200) {
                     console.log("Successfully logged in");
-                    console.log(response.data);
-                    $scope.message = response.data.message;   
+                    // console.log(response.data);
+                    console.log(response.data.token);
+                    const secret = {
+                        token : response.data.token,
+                    }
+                    window.localStorage.setItem('user', JSON.stringify(secret));
+                    
+                    
+                    $state.go('home');   
                 }
                 else if (response.status == 404) {
                     console.log("Invalid Credentials.");
