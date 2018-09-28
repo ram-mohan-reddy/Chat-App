@@ -1,12 +1,21 @@
 
-    <div class="box">
-        <div class="form">
+    <div class="boxregister">
+        <div class="formregister">
                 <img  src="images/logo.jpg">
                 <h3> Create your Chit Chat Account</h3>
-            <form  >
-                <input type="text" name="username" placeholder="Name" ng-model = "user.username"/>
+            <form name="registrationPage" novalidate >
+                <input type="text" name="username" placeholder="Name" ng-model = "user.username" required maxlength="25" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/"/>
+                <span style="color:red" ng-show="registrationPage.username.$dirty && registrationPage.username.$invalid">
+                    <span ng-show="registrationPage.username.$error.required">Username is required.</span>
+                    </span>
                 <input type="email" name="email" placeholder="E-mail" ng-model = "user.email"/>
-                <input type="number" name="phonenumber" placeholder="Phone Number" ng-model = "user.phonenumber"/>
+                <div ng-messages="registrationPage.email.$error">
+                    <span style="color:orangered" ng-show="registrationPage.email.$touched && registrationPage.email.$invalid">Enter valid
+                        email</span>
+                <input type="text" name="phonenumber" placeholder="Phone Number" ng-model = "user.phonenumber" maxlength="10" ng-pattern="/^[6-9][0-9]{9}$/" />
+                <span style="color:red" ng-show="registrationPage.phonenumber.$dirty && registrationPage.phonenumber.$invalid" class="ng-hide">   
+                    Please Enter Valid  Mobile No.!  
+                    </span>  
                 <input type="password" name="password" placeholder="Password" ng-model = "user.password"/>
                  <a href="#!/login">Sign in</a>  
                 <!-- <span style="margiun"></span> -->

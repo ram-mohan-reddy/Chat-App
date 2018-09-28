@@ -2,20 +2,22 @@
 
 <body>
 
-    <header class="header">
-        <img src="../images/logo.jpg" style="width: 150px;height: 75px;float: left;  border-radius: 10px 10px 10px 10px;">
+    <div class="header">
+        <img src="../images/logo.jpg" style="width: 150px;height: 75px;float: left;  border-radius: 10px 10px 10px 10px; ">
         <nav>
-            <a href="#!/login" style="float: right; " ng-click="closing()">logout</a>
+            <a href="#!/login" style="float: right; " ng-click="close()">logout</a>
+            
         </nav>
-    </header>
+    </div>
 
     <div class="div">
             <button ng-click="displayContacts()">Friends List</button>
-           <div>{{message}}</div> 
+           <div class="contacts" ng-repeat="x in contacts">{{x}}</div> 
+           <!-- <h1 ng-repeat="x in contacts">{{x}}</h1> -->
     </div>
 
 
 
 </body>
-
+ 
 </html>

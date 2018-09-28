@@ -25,7 +25,7 @@ chatApp.controller("loginController", function ($scope, $http, $state,$window) {
                         'token' : response.data.token,
                         'id' : response.data._id,
                     } 
-                    // console.log($scope.secret);
+                    //  console.log($scope.secret);
 
                     window.localStorage.setItem('user', JSON.stringify($scope.secret));
                     
@@ -35,10 +35,12 @@ chatApp.controller("loginController", function ($scope, $http, $state,$window) {
                 else if (response.status == 404) {
                     console.log("Invalid Credentials.");
                     console.log(response);
+                   
                 }           
         },function (response) {
             console.log(response);
             $scope.message = response.data.message;
+           
         })
     };
     

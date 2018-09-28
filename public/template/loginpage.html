@@ -1,15 +1,15 @@
-
-    <div class="boxlogin" >
-        <div class="form">
-                <img  src="images/logo.jpg">
-            <form >
-                <input class='input' type="email" name="email" placeholder="E-mail" ng-model = "user.email"/>
-                <input type="text" name="Password" placeholder="Password" ng-model = "user.password"/>
-                For Account ?
-                  <a href="#!/register">Register here</a> &nbsp &nbsp  
+<div class="boxlogin">
+    <div class="formlogin">
+        <img src="images/logo.jpg">
+        <form name="loginPage" novalidate>
+            <input class='input' type="email" name="email" placeholder="E-mail" ng-model="user.email" required />
+            <div ng-messages="formlogin.email.$error">
+                <span style="color:orangered" ng-show="loginPage.email.$touched && loginPage.email.$invalid">Enter valid
+                    email</span>
+                <input type="password" name="Password" placeholder="Password" ng-model="user.password" required/> For Account?
+                <a href="#!/register">Register here</a> &nbsp &nbsp
                 <button ng-click="displayHome()">Login</button>
                 <h3>{{message}}</h3>
-            </form>
+        </form>
         </div>
     </div>
-

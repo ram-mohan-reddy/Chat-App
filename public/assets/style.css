@@ -10,57 +10,15 @@
     margin: auto; 
    height: 300px;
 }
- .boxlogin {
-    width: 360px;
-    padding: 10% 0 0;
-    margin: auto;   
-}
-
-.form {
-    position: relative;
-    z-index: 1;
-    background: #ffffff;
-    max-width: 360px;
-    padding: 0 45px 45px 45px;
-    text-align: center;
-    border-radius: 50px 50px 50px 50px;
-    
-}
-
-.form input{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    outline: 1;
-    background: #f2f2f2;
-    width: 100%;  
-    border: 0%;
-    margin: 0 0 15px;  
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-.form img {
-    width: 250px;
-    height: 150px;   
-}
-
-.form h3 {
-    text-align: center;
-}
-
-.form a {
-    align-content: left;
-    text-decoration: none;
-}
-
+ 
 .header {
     background-color: #F1F1F1;
     text-align: center;
-    padding: 20px;
-    width: 1300px;
-    height: 75px;
-    margin-left: 15px;
-    border-radius: 10px 10px 10px 10px;
+    margin:-8px;
+    /* border-radius: 10px 10px 10px 10px; */
+    overflow: hidden;
+    height: 50px;
+  padding: 20px 10px;
     
 }
 
@@ -68,18 +26,35 @@
 
     align-content: left;
     text-decoration: none;
-    padding: 20px;
+    padding: 10px;
+
+    margin-right: 50px
 }
 
-.section {
-    background-color: #F1F1F1;
-}
+/* .section { */
+    /* background-color: #F1F1F1; */
+/* } */
 
 .div {
     background-color: #F1F1F1;
-    width: 250px;
-    height: 500px;
+    width: 150px;
+    height: 620px;
     padding: 20px;
-    border-radius: 10px 10px 10px 10px;
-    margin: 20px;
+    /* border-radius: 10px 10px 10px 10px; */
+    /* margin: 20px; */
+    margin:-8px;
+}
+
+.div button {
+
+    /* padding: 10px; */
+    margin-top: 20px;
+    
+
+}
+
+.contacts {
+    margin-top: 20px;
+    margin-left: 10px;
+    /* padding: 5px */
 }

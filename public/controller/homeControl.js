@@ -1,6 +1,6 @@
 chatApp.controller("homeController", function ($scope, $http,$state) {
     $scope.secret = JSON.parse(window.localStorage.getItem('user'));
-
+    $scope.contacts = [];
     $scope.params = {
 
         'id': $scope.secret.id
@@ -21,9 +21,13 @@ chatApp.controller("homeController", function ($scope, $http,$state) {
                 console.log("Contacts are");
 
                 for (const key in response.data.contacts) {
+                    // $scope.message ='';
                     console.log(response.data.contacts[key].username);
-                    $scope.message = response.data.contacts[key].username;
+                    $scope.contacts.push(response.data.contacts[key].username);
+                    // $scope.message = response.data.contacts[key].username;
                 }
+
+                
             }
             else if (response.status == 404) {
                 console.log("error.");
@@ -37,7 +41,10 @@ chatApp.controller("homeController", function ($scope, $http,$state) {
 
     $scope.close = function () { 
 
-        // window.location.replace("#!/login");  
+        window.localStorage.clear();
+        console.log($scope.secret);
+        
+        window.location.replace("#!/login");  
 
     }
 

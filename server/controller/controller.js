@@ -12,11 +12,13 @@ router.post("/login", [
     check('email').isEmail(),
     check('password').isLength({ min: 5 })
 ], (req, res) => {
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         console.log(errors.array());
         return res.status(422).json({ errors: errors.array() });
     }
+    
     user.email = req.body.email;
     user.password = require('crypto')
         .createHash('sha1')
@@ -56,11 +58,13 @@ router.post('/register', [
     check('email').isEmail(),
     check('password').isLength({ min: 5 })
 ], (req, res) => {
+    var user = new schema();
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         console.log(errors.array());
         return res.status(422).json({ errors: errors.array() });
     }
+   
     user.username = req.body.username;
     user.phonenumber = req.body.phonenumber;
     user.email = req.body.email;
@@ -88,7 +92,7 @@ router.post('/register', [
                     }
                     else {
                         response = {
-                            "message": "Successfully registerd",
+                            "message": "Registered successfully",
                         };
                         console.log('Registered successfully');
                         return res.status(200).send(response);
