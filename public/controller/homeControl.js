@@ -17,6 +17,29 @@ chatApp.controller("homeController", function ($scope, $http,$state) {
             },
             params: $scope.params
         }).then(function (response) {
+
+            var socket = io.connect('http://localhost:2000');
+
+            socket.on('connect', function () {
+                socket.send('hi');
+            
+                socket.on('message', function (msg) {
+                 console.log(msg);
+                 
+                });
+              });
+
+            // socket.on('message', function(message) {
+
+            //     console.log('The server has a message for you: ' + message);
+
+            //     socket.broadcast.emit('message', 'Message to all units. I repeat, message to all units.');
+                
+            // })
+
+           
+
+
             if (response.status == 200) {
                 console.log("Contacts are");
 

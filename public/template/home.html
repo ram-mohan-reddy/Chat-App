@@ -1,23 +1,48 @@
 
-
-<body>
-
+<div class="page">
     <div class="header">
         <img src="../images/logo.jpg" style="width: 150px;height: 75px;float: left;  border-radius: 10px 10px 10px 10px; ">
         <nav>
             <a href="#!/login" style="float: right; " ng-click="close()">logout</a>
-            
+
         </nav>
     </div>
+    <div>
 
-    <div class="div">
-            <button ng-click="displayContacts()">Friends List</button>
-           <div class="contacts" ng-repeat="x in contacts">{{x}}</div> 
-           <!-- <h1 ng-repeat="x in contacts">{{x}}</h1> -->
+        
+
+
+        <div class="div">
+            <div>
+                <button ng-click="displayContacts()">Friends List</button>
+            </div>
+
+            <div>
+
+                <a href="#"><div class="contacts" ng-repeat="list in contacts">{{list}}</div> </a>
+
+            </div>
+            <!-- <h1 ng-repeat="x in contacts">{{x}}</h1> -->
+        </div>
+
+        <div class="dashboard">
+            <div class="choice">
+
+            </div>
+            <div class="view">
+
+            </div>
+            <div>
+                    <input class="text" type="text" name="message" placeholder="Enter message">
+                    <button >Send</button>
+            </div>
+            
+
+
+        </div>
+
+
     </div>
 
 
-
-</body>
- 
-</html>
+</div>

@@ -1,4 +1,4 @@
- body {
+ .page {
     background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/background.jpg');
     height: 100vh;
     background-size: cover;
@@ -37,12 +37,16 @@
 
 .div {
     background-color: #F1F1F1;
-    width: 150px;
-    height: 620px;
+    width: 200px;
+    height: 560px;
     padding: 20px;
-    /* border-radius: 10px 10px 10px 10px; */
+    border-radius: 10px 10px 10px 10px;
     /* margin: 20px; */
-    margin:-8px;
+    /* margin:-8px; */
+    margin-left: -8px;
+    margin-top: 10px;
+
+    float: left;
 }
 
 .div button {
@@ -58,3 +62,51 @@
     margin-left: 10px;
     /* padding: 5px */
 }
+
+.text {
+    background-color: #F1F1F1;
+    /* float:right; */
+
+    /* margin-left: 50px; */
+
+    height: 50px;
+    width: 300px;
+    border-radius: 10px 10px 10px 10px;
+    
+
+}
+
+.dashboard {
+
+    margin-top: 10px;
+float: right;
+    /* margin-left: 500px; */
+    background-color: rgb(204, 109, 109);
+        
+    height: 590px;
+    width: 400px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+.view {
+    height: 530px;
+    width: 400px;
+    background-color: #F1F1F1;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.choce {
+
+    height: 530px;
+    width: 400px;
+    background-color: #F1F1F1;
+}
+
+.hidden { 
+    visibility: hidden; 
+}
+
+.unhidden { 
+    visibility: visible; 
+} 

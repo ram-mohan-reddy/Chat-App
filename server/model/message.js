@@ -3,7 +3,7 @@ var messageSchema = mongoose.Schema({
     name : String,
     message : String,
     time : Date,
-    status : Boolean
+    
 
 });
 
