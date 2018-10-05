@@ -1,48 +1,94 @@
-
-<div class="page">
+<!-- <div class="page">
     <div class="header">
-        <img src="../images/logo.jpg" style="width: 150px;height: 75px;float: left;  border-radius: 10px 10px 10px 10px; ">
-        <nav>
-            <a href="#!/login" style="float: right; " ng-click="close()">logout</a>
+        <img src="../images/logo.jpg" style="width: 150px;height: 75px;float: left; margin-left: 10px; border-radius: 10px 20px 10px 20px; ">
+        
 
-        </nav>
+            <a href="#!/login" style="float: right;padding:10px;font-size:20px " ng-click="close()">logout</a>
+
+       
     </div>
     <div>
 
-        
+
 
 
         <div class="div">
-            <div>
-                <button ng-click="displayContacts()">Friends List</button>
-            </div>
 
             <div>
 
                 <a href="#"><div class="contacts" ng-repeat="list in contacts">{{list}}</div> </a>
 
             </div>
-            <!-- <h1 ng-repeat="x in contacts">{{x}}</h1> -->
         </div>
 
         <div class="dashboard">
-            <div class="choice">
-
-            </div>
-            <div class="view">
-
-            </div>
-            <div>
-                    <input class="text" type="text" name="message" placeholder="Enter message">
-                    <button >Send</button>
-            </div>
-            
 
 
+            <p ng-repeat="chat in chatlist">{{chat.username}} : {{chat.message}}</p>
         </div>
+        <div>
+            <textarea style="margin-left:182px; font-style: italic" id="text" rows="3" cols="100" placeholder="Enter your message" ng-model="message" required></textarea>
+            <button class="send" ng-click="add()">Send</button>
+        </div>
+       
+
+
+
 
 
     </div>
 
 
+</div> -->
+
+
+<div class="homeheader">
+
+    <img src="../images/liberty-connect-logo.jpg" style="height: 130px;width: 200px; float: left;">
+
+    <a href="#!/login" class="logout" ng-click="close()">logout</a>
+
+</div>
+
+<div class="outerbox">
+    <div class="box1">
+        <p style="margin-left:10px">FRIENDS IN CONTACT LIST</p>
+        <div ng-repeat="list in contacts">
+        <div class="contacts" ng-click="openSingleChat(list)" > {{list}} </div>
+            </div>
+    </div>
+
+    <div class="box2" ng-if=" show == 'group'">
+        <div ng-repeat="chatlist in chatArr">
+            <p class="left" ng-if="currentUser != chatlist.sender">{{chatlist.sender}} :
+                <span>{{chatlist.message}}</span><br><br>
+                <span>{{chatlist.dateTime | date: 'medium'}}</span></p>
+            <p class="right" ng-if="currentUser == chatlist.sender">{{chatlist.sender}} :
+                <span>{{chatlist.message}}</span><br><br>
+                <span>{{chatlist.dateTime | date : 'medium'}}</span></p>
+        </div>
+
+    </div>
+
+    <div class="box2" ng-if="show == 'single'">
+        <p class="singlehead">CONNECTED CHAT WITH {{identity | uppercase}}</p>
+        <!-- <p ng-if = "currentUser == chat.username"> </p> -->
+        <div ng-repeat = "chatlist in chatSingleArr">
+        <p class="left" ng-if="currentUser != chatlist.sender">{{chatlist.sender}} :
+            <span>{{chatlist.message}}</span><br><br>
+            <span>{{chatlist.dateTime | date: 'medium'}}</span></p>
+        <p class="right" ng-if="currentUser == chatlist.sender">{{chatlist.sender}} : 
+            <span>{{chatlist.message}}</span><br><br>
+            <span>{{chatlist.dateTime | date : 'medium'}}</span></p>
+    </div>
+
+    </div>
+
+    <div class="box3">
+        <textarea style=" font-style: italic; border-radius: 5px; background-color: aliceblue; margin-right: 10px" id="text" rows="3"
+            cols="100" placeholder="Enter your message" ng-model="message" required></textarea>
+        <button class="send" ng-click="add()">Send</button>
+    </div>
+
+    
 </div>

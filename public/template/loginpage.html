@@ -1,4 +1,4 @@
-<div class="page">
+<!-- <div class="page1">
 
 
     <div class="boxlogin">
@@ -18,4 +18,40 @@
             </form>
             </div>
         </div>
+    </div> -->
+
+    <div class="headerlogin">
+
+        <img src="../images/liberty-connect-logo.jpg" style="height: 130px;width: 200px; float: left;">
+
+        <div style="float: right; color: rgb(251, 251, 255); margin: 40px">
+            <p>WELCOME TO LIBERTY LOGIN </p>
+        </div>
+
     </div>
+
+    <div class="contentlogin">
+        <div class="headinglogin">
+            <p style="padding: 10px"> LOGIN TO CONNECT </p>
+        </div>
+        <div>
+            <div>
+
+                <form class="formlogin" name="loginPage" novalidate>
+                    <input style="margin-bottom: 30px" type="email" name="email" placeholder="E-MAIL" ng-model="user.email" required/>
+                    <div ng-messages="formlogin.email.$error">
+                        <span style="color:orangered" ng-show="loginPage.email.$touched && loginPage.email.$invalid">Enter valid
+                            email
+                        </span>
+                    <input style="margin-top: 30px" name="Password" type="password" placeholder="Password" ng-model="user.password" required/>
+                    <button ng-click="displayHome()" class="loginbutton">LOGIN</button>
+                    <h3>{{message}}</h3>
+                </form>
+
+            </div>
+            <div class="orlogin">
+                    <button ng-click="displayRegister()" class="rightlogin">REGISTER</button>
+
+            </div>
+
+        </div>

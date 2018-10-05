@@ -1,5 +1,5 @@
-.page {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('../images/back.jpg');
+/* .page1 {
+    background-image: url('../images/login.jpg');
     height: 100vh;
     background-size: cover;
     background-position: center; 
@@ -47,4 +47,105 @@
     padding: 10% 0 0;
     margin: auto;   
 }
+ */
 
+ 
+.headerlogin {
+    width: 100%;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 130px;
+    background-color:#080808;
+    z-index: 20;
+    border-bottom: 4px solid #545454; 
+}
+
+.contentlogin {
+
+    width: 983px;
+    margin: auto;
+    padding-bottom: 20px;
+    border: 1px solid #ccc;
+    background-color: rosybrown;
+    margin-bottom: 90px;
+    margin-top: 180px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    max-height: 100%;
+    min-height: 450px;
+}
+
+.headinglogin {
+    border-bottom: 4px solid #545454; 
+    height: 50px;
+    width: 983px
+}
+
+.orlogin {
+    margin-left: 280px;
+    margin-top: 270px;
+    position: absolute;
+    top: 34px;
+    left: 424px;
+    width: 1px;
+    height: 300px;
+    background: #545454;
+    border: 2px solid #545454;
+}
+
+.formlogin {
+   
+    position: relative;
+    max-width: 360px;
+    padding: 85px 45px 45px 45px;
+    text-align: center;
+   
+}
+
+.formlogin input{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    outline: 1;
+    background: #f2f2f2;
+    width: 100%;  
+    border: 0%;
+    margin: 0 0 15px;  
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.loginbutton {
+    margin-top: 28px;
+    width: 78%;
+    height: 42px;
+    background: #44ad48;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;  
+    font-size: 15px;
+
+}
+
+.rightlogin {
+  
+    /* float: right; */
+    width: 300px; 
+    height: 50px;
+    margin-top: 85px;
+    margin-left: 100px;
+    background: #444bb3;
+    border: none;
+    border-radius: 2px;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+     
+    font-size: 15px;
+    
+   
+}

@@ -24,6 +24,7 @@ chatApp.controller("loginController", function ($scope, $http, $state,$window) {
 
                         'token' : response.data.token,
                         'id' : response.data._id,
+                        'username' : response.data.username
                     } 
                     //  console.log($scope.secret);
 
@@ -43,5 +44,11 @@ chatApp.controller("loginController", function ($scope, $http, $state,$window) {
            
         })
     };
+
+    $scope.displayRegister = function () { 
+
+        $state.go('register'); 
+
+    }
     
 });

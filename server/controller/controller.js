@@ -12,13 +12,13 @@ router.post("/login", [
     check('email').isEmail(),
     check('password').isLength({ min: 5 })
 ], (req, res) => {
-    
+
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         console.log(errors.array());
         return res.status(422).json({ errors: errors.array() });
     }
-    
+
     user.email = req.body.email;
     user.password = require('crypto')
         .createHash('sha1')
@@ -34,7 +34,8 @@ router.post("/login", [
                 response = {
                     "message": "Successfully logged in",
                     "token": token,
-                    "_id": result[0]._id
+                    "_id": result[0]._id,
+                    "username": result[0].username
                 };
                 console.log('User succesfully Logged in');
                 res.status(200).send(response);
@@ -64,7 +65,7 @@ router.post('/register', [
         console.log(errors.array());
         return res.status(422).json({ errors: errors.array() });
     }
-   
+
     user.username = req.body.username;
     user.phonenumber = req.body.phonenumber;
     user.email = req.body.email;
@@ -145,5 +146,55 @@ router.get('/users/:id/list', function (req, res, next) {
         });
 
 });
+
+
+router.get('/users/chat', function (req, res) {
+    var schema = require('../model/message');
+    schema.find({})
+        .then(result => {
+            response = {
+                'messages': result
+            };
+            return res.status(200).send(response);
+        }).catch(err => {
+
+            console.log("Some error occurred while retrieving users.");
+            return res.status(500).send({
+                message: err.message || "Some error occurred while retrieving users."
+            });
+        });
+});
+
+
+router.get('/users/:id/:id1/list', function (req, res) {
+    var schema = require('../model/privateMessage');
+   
+    
+    schema.find({$or:[{"sender" : req.params.id, 
+    "receiver" : req.params.id1},{"sender" : req.params.id1, 
+    "receiver" : req.params.id}]})
+        .then(result => {
+
+            console.log(req.params.id);
+            console.log(req.params.id1);
+
+            console.log(result);
+            
+            response = {
+                'messages': result
+            };
+            return res.status(200).send(response);
+        }).catch(err => {
+
+            console.log("Some error occurred while retrieving users.");
+            return res.status(500).send({
+                message: err.message || "Some error occurred while retrieving users."
+            });
+        });
+});
+
+
 // app.use('/', router);
 module.exports = router;
+
+

@@ -43,4 +43,11 @@ chatApp.controller("registerController", function ($scope, $http) {
         })
     };
 
+    $scope.displayLogin = function () { 
+
+        window.location.replace("#!/login");
+
+    }
+
+
 });

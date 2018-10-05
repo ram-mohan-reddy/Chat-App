@@ -1,4 +1,4 @@
-<div class="page"> 
+<!-- <div class="page2"> 
 
 
     <div class="boxregister">
@@ -19,8 +19,7 @@
                     Please Enter Valid  Mobile No.!  
                     </span>  
                 <input type="password" name="password" placeholder="Password" ng-model = "user.password"/>
-                 <a href="#!/login">Sign in</a>  
-                <!-- <span style="margiun"></span> -->
+                 <a href="#!/login">Sign in</a>   
                 <button ng-click="register()" style="margin-left: 10px">Submit</button>
                 <h3>{{message}}</h3>
             </form>
@@ -29,4 +28,49 @@
 
     </div>
 
-</div>
+</div> -->
+
+<div class="header">
+
+        <img src="../images/liberty-connect-logo.jpg" style="height: 120px;width: 195px; float: left;">
+
+        <div style="float: right; color: rgb(251, 251, 255); margin: 35px">
+            <p>NEW USER REGISTRATION</p> 
+        </div>
+
+    </div>
+
+    <div class="content">
+            <div class="headinglogin">
+                    <p style="padding: 10px"> REGISTER HERE </p>
+                </div>
+
+                <div class="formregister">
+    
+                    <form name="registrationPage" novalidate >
+                        <input type="text" name="username" placeholder="Name" ng-model = "user.username" required maxlength="25" ng-pattern="/^[a-zA-Z. ]*[a-zA-Z]{1,60}$/"/>
+                        <span style="color:red" ng-show="registrationPage.username.$dirty && registrationPage.username.$invalid">
+                            <span ng-show="registrationPage.username.$error.required">Username is required.</span>
+                            </span>
+                        <input type="email" name="email" placeholder="E-mail" ng-model = "user.email"/>
+                        <div ng-messages="registrationPage.email.$error">
+                            <span style="color:orangered" ng-show="registrationPage.email.$touched && registrationPage.email.$invalid">Enter valid
+                                email</span>
+                        <input type="text" name="phonenumber" placeholder="Phone Number" ng-model = "user.phonenumber" maxlength="10" ng-pattern="/^[6-9][0-9]{9}$/" />
+                        <span style="color:red" ng-show="registrationPage.phonenumber.$dirty && registrationPage.phonenumber.$invalid" class="ng-hide">   
+                            Please Enter Valid  Mobile No.!  
+                            </span>  
+                        <input type="password" name="password" placeholder="Password" ng-model = "user.password"/>
+                        <button ng-click="register()" class="loginbutton">SUBMIT</button>
+                        <h3>{{message}}</h3>
+                        <!-- <a href="#!/login">Sign in</a>   
+                        <button ng-click="register()" style="margin-left: 10px">Submit</button>
+                        <h3>{{message}}</h3> -->
+                    </form>
+
+                    <div class="orregister">
+                            <button ng-click="displayLogin()" class="rightregister">LOGIN</button>
+        
+                    </div>
+        </div>
+
